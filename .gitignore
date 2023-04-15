@@ -1,6 +1,9 @@
 *.xcworkspacedata
 *.xcuserstate
 
+*xcworkspace/xcshareddata/*
+*xcworkspace/xcshareddata/
 *xcworkspace/xcuserdata/*
-
+*xcuserdata/
+*xcshareddata/
 
