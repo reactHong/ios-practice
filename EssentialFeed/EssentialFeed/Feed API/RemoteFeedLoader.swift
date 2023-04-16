@@ -23,7 +23,8 @@ public final class RemoteFeedLoader {
     
     public func load() {
         client.get(from: url)
-        client.get(from: url)
+        //NOTE: Can fix by testing code if the code duplicated when merging
+        //client.get(from: url)
     }
 }
 
