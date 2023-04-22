@@ -7,8 +7,13 @@
 
 import Foundation
 
+public enum HTTPClientResult {
+    case success(HTTPURLResponse)
+    case failure(Error)
+}
+
 public protocol HTTPClient {
-    func get(from url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void)
+    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void)
 }
 
 
@@ -27,15 +32,19 @@ public final class RemoteFeedLoader {
     }
     
     public func load(completion: @escaping (Error) -> Void) {
-        client.get(from: url) { error, response in
+        client.get(from: url) { result in
             
-            if let _ = error {
-                completion(.connectivity)
-            }
-            if let response = response {
-                if response.statusCode != 200 {
-                    completion(.invalidData)
+            switch result {
+            case .success:
+                if case let .success(response) = result {
+                    if response.statusCode != 200 {
+                        completion(.invalidData)
+                    }
                 }
+                break
+            case .failure:
+                completion(.connectivity)
+                break
             }
         }
         //NOTE: Can fix by testing code if the code duplicated when merging
