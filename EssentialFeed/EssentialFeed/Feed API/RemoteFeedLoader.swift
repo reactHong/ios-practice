@@ -8,7 +8,7 @@
 import Foundation
 
 public enum HTTPClientResult {
-    case success(HTTPURLResponse)
+    case success(HTTPURLResponse, Data)
     case failure(Error)
 }
 
@@ -36,9 +36,16 @@ public final class RemoteFeedLoader {
             
             switch result {
             case .success:
-                if case let .success(response) = result {
+                if case let .success(response, data) = result {
                     if response.statusCode != 200 {
                         completion(.invalidData)
+                    } else {
+                        if let _ = try? JSONDecoder().decode(FeedItem.self, from: data) {
+                            
+                        }
+                        else {
+                            completion(.invalidData)
+                        }
                     }
                 }
                 break
