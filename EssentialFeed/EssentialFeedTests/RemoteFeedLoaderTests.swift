@@ -87,7 +87,7 @@ class RemoteFeedLoaderTests: XCTestCase {
         })
     }
     
-    func test_load_deliversEmptyDataOn200HTTPResponseWithJSONEmptyList() {
+    func test_load_deliversNoItemsOn200HTTPResponseWithJSONEmptyList() {
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWith: .success([]), when: {
