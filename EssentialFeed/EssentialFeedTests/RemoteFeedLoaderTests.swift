@@ -98,30 +98,17 @@ class RemoteFeedLoaderTests: XCTestCase {
     
     func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
         let (sut, client) = makeSUT()
-        
-        let item1 = FeedItem(
+        let (item1, itemJSON1) = makeDummyItem(
             id: UUID(),
             description: nil,
             location: nil,
-            imageURL: URL(string: "https://a-image-url.com")!)
+            imageURL: "https://a-image-url.com")
         
-        let itemJSON1 = [
-            "id": item1.id.uuidString,
-            "image": item1.imageURL.absoluteString
-        ]
-        
-        let item2 = FeedItem(
+        let (item2, itemJSON2) = makeDummyItem(
             id: UUID(),
             description: "a description",
             location: "a location",
-            imageURL: URL(string: "https://another-image-url.com")!)
-        
-        let itemJSON2 = [
-            "id": item2.id.uuidString,
-            "description": item2.description,
-            "location": item2.location,
-            "image": item2.imageURL.absoluteString
-        ]
+            imageURL: "https://a-image-url.com")
         
         let itemsJSON = [
             "items": [itemJSON1, itemJSON2]
@@ -151,6 +138,23 @@ class RemoteFeedLoaderTests: XCTestCase {
         action()
         
         XCTAssertEqual(capturedResults, [result], file: file, line: line)
+    }
+    
+    private func makeDummyItem(id: UUID, description: String?, location: String?, imageURL: String) -> (FeedItem, [String:String]) {
+        let item = FeedItem(
+            id: id,
+            description: description,
+            location: location,
+            imageURL: URL(string: imageURL)!)
+        
+        let itemJSON = [
+            "id": item.id.uuidString,
+            "description": item.description,
+            "location": item.location,
+            "image": item.imageURL.absoluteString
+        ].compactMapValues { $0 }
+        
+        return (item, itemJSON)
     }
     
     private class HTTPClientSpy : HTTPClient {
