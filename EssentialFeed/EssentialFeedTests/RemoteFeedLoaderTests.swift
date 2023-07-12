@@ -124,6 +124,11 @@ class RemoteFeedLoaderTests: XCTestCase {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(url: url, client: client)
         
+        addTeardownBlock { [weak sut, weak client] in
+            XCTAssertNil(sut)
+            XCTAssertNil(client)
+        }
+        
         return (sut: sut, client: client)
     }
     
