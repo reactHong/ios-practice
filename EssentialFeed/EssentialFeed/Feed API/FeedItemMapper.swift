@@ -34,4 +34,13 @@ internal final class FeedItemsMapper {
         let root = try JSONDecoder().decode(Root.self, from: data)
         return root.items.map { $0.item }
     }
+    
+    internal static func map(response: HTTPURLResponse, data: Data) -> RemoteFeedLoader.Result {
+        do {
+            let items = try FeedItemsMapper.map(response, data)
+            return .success(items)
+        } catch {
+            return .failure(.invalidData)
+        }
+    }
 }
