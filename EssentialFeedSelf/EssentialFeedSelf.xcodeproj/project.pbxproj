@@ -10,6 +10,7 @@
 		F14B03602A917EE700F8A01F /* EssentialFeedSelf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14B03572A917EE600F8A01F /* EssentialFeedSelf.framework */; };
 		F14B03652A917EE700F8A01F /* EssentialFeedSelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14B03642A917EE700F8A01F /* EssentialFeedSelfTests.swift */; };
 		F14B03662A917EE700F8A01F /* EssentialFeedSelf.h in Headers */ = {isa = PBXBuildFile; fileRef = F14B035A2A917EE600F8A01F /* EssentialFeedSelf.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F14B03702A9180F100F8A01F /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14B036F2A9180F100F8A01F /* FeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 		F14B035A2A917EE600F8A01F /* EssentialFeedSelf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeedSelf.h; sourceTree = "<group>"; };
 		F14B035F2A917EE700F8A01F /* EssentialFeedSelfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedSelfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14B03642A917EE700F8A01F /* EssentialFeedSelfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedSelfTests.swift; sourceTree = "<group>"; };
+		F14B036F2A9180F100F8A01F /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				F14B035A2A917EE600F8A01F /* EssentialFeedSelf.h */,
+				F14B036F2A9180F100F8A01F /* FeedItem.swift */,
 			);
 			path = EssentialFeedSelf;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				TargetAttributes = {
 					F14B03562A917EE600F8A01F = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					F14B035E2A917EE700F8A01F = {
 						CreatedOnToolsVersion = 14.2;
@@ -191,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F14B03702A9180F100F8A01F /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +340,7 @@
 		F14B036A2A917EE700F8A01F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -356,6 +362,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -363,6 +370,7 @@
 		F14B036B2A917EE700F8A01F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -391,6 +399,7 @@
 		F14B036D2A917EE700F8A01F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y6D4PDUL7F;
@@ -406,6 +415,7 @@
 		F14B036E2A917EE700F8A01F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y6D4PDUL7F;
