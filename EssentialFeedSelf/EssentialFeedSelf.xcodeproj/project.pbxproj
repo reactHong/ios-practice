@@ -11,6 +11,7 @@
 		F14B03652A917EE700F8A01F /* EssentialFeedSelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14B03642A917EE700F8A01F /* EssentialFeedSelfTests.swift */; };
 		F14B03662A917EE700F8A01F /* EssentialFeedSelf.h in Headers */ = {isa = PBXBuildFile; fileRef = F14B035A2A917EE600F8A01F /* EssentialFeedSelf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F14B03702A9180F100F8A01F /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14B036F2A9180F100F8A01F /* FeedItem.swift */; };
+		F1C070782A91827100E4C509 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C070772A91827100E4C509 /* FeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		F14B035F2A917EE700F8A01F /* EssentialFeedSelfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedSelfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14B03642A917EE700F8A01F /* EssentialFeedSelfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedSelfTests.swift; sourceTree = "<group>"; };
 		F14B036F2A9180F100F8A01F /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		F1C070772A91827100E4C509 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				F14B035A2A917EE600F8A01F /* EssentialFeedSelf.h */,
 				F14B036F2A9180F100F8A01F /* FeedItem.swift */,
+				F1C070772A91827100E4C509 /* FeedLoader.swift */,
 			);
 			path = EssentialFeedSelf;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C070782A91827100E4C509 /* FeedLoader.swift in Sources */,
 				F14B03702A9180F100F8A01F /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
