@@ -32,5 +32,25 @@ final class EssentialFeedSelfTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testRequest() {
+        let loader = RemoteFeedLoaderTemp()
+        
+        let exp = expectation(description: "Wait for load completion")
+        
+        loader.load { result in
+            print("testRequest")
+            print(result)
+            switch (result) {
+            case .success(let items):
+                XCTAssertEqual(items.isEmpty, true)
+            default:
+                break
+            }
+            
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 5.0)
+    }
 
 }
