@@ -26,7 +26,7 @@ class HTTPClient {
 }
 
 class RemoteFeedLoader {
-    func load(completion: ()->Void) {
+    func load() {
         HTTPClient.shared.requestedURL = URL(string: "https://any-url.com")!
         
     }
@@ -46,7 +46,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         let client = HTTPClient.shared
         let sut = RemoteFeedLoader()
         
-        sut.load { }
+        sut.load()
         
         XCTAssertNotNil(client.requestedURL)
     }
