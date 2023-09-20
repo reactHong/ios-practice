@@ -20,7 +20,10 @@ import EssentialFeedEx1
  Goal: Use dependecy injection instead of Global shared variable
  Why: RemoteFeedLoader does not need to know about HTTPClient.shared
  */
-
+/*
+ Goal: URL을 RemoteFeedLoader에게 전달해줌으로써 전달한 URL과 request한 URL이 같은지 체크
+ 
+ */
 
 protocol HTTPClient {
     func get(from: URL)
@@ -60,12 +63,13 @@ final class RemoteFeedLoaderTests: XCTestCase {
     }
     
     func test_load_requestsDataFromURL() {
+        let url = URL(string: "https://any-url.com")!
         let client = HTTPClientSpy()
-        let sut = RemoteFeedLoader(client: client)
+        let sut = RemoteFeedLoader(client: client, url: url)
         
         sut.load()
         
-        XCTAssertNotNil(client.requestedURL)
+        XCTAssertEqual(client.requestedURL, url)
     }
 
 }
