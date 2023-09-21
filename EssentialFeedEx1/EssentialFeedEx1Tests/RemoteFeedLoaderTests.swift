@@ -27,6 +27,9 @@ import EssentialFeedEx1
 /*
  Goal: Separate production code from testing code
  */
+/*
+ Goal: Make testing failed to invoke client.get functions in the RemoteFeedLoader.load function
+ */
 
 
 
@@ -47,6 +50,17 @@ final class RemoteFeedLoaderTests: XCTestCase {
         XCTAssertEqual(client.requestedURL, url)
     }
     
+    func test_loadTwice_requestDataFromURLTwice() {
+        let url = URL(string: "https://any-url.com")!
+        let (client, sut) = makeSUT(url: url)
+        
+        sut.load()
+        sut.load()
+        
+        XCTAssertEqual(client.requestedURLs, [url, url])
+        
+    }
+    
     // MARK: - Helpers
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!) -> (client: HTTPClientSpy, sut: RemoteFeedLoader) {
         let client = HTTPClientSpy()
@@ -58,9 +72,11 @@ final class RemoteFeedLoaderTests: XCTestCase {
     
     private class HTTPClientSpy: HTTPClient {
         var requestedURL: URL?
+        var requestedURLs = [URL]()
         
         func get(from url: URL) {
             requestedURL = url
+            requestedURLs.append(url)
         }
     }
 }
