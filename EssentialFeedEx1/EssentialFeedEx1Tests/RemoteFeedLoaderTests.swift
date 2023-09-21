@@ -7,6 +7,7 @@
 
 import XCTest
 import EssentialFeedEx1
+//@testable import EssentialFeedEx1
 
 /*
  RemoteFeedLoader의 역할: 원격으로부터 FeedItem을 load한다.
@@ -22,29 +23,12 @@ import EssentialFeedEx1
  */
 /*
  Goal: URL을 RemoteFeedLoader에게 전달해줌으로써 전달한 URL과 request한 URL이 같은지 체크
- 
+ */
+/*
+ Goal: Separate production code from testing code
  */
 
-protocol HTTPClient {
-    func get(from: URL)
-}
 
-class RemoteFeedLoader {
-    let client: HTTPClient
-    let url: URL
-    
-    init(client: HTTPClient, url: URL) {
-        self.client = client
-        self.url = url
-    }
-    
-    func load() {
-        //HTTPClient.shared.requestedURL = URL(string: "https://any-url.com")!
-        //HTTPClient.shared.get(from: URL(string: "https://any-url.com")!)
-        client.get(from: url)
-        
-    }
-}
 
 final class RemoteFeedLoaderTests: XCTestCase {
 
